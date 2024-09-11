@@ -1,98 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>forms</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
+  <body>
+    <form method="get" autocomplete="on" novalidate id="myForm">
+      <div id="form">
+        <h1>DYNAMIC RESUME BUILDER</h1>
+        <h3>Build your own resume here</h3>
 
-<body>
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label>Name</label> <br />
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter name here"
+            autofocus
+            required
+          />
+          <br />
 
-    <form method="get" autocomplete="on" novalidate>
-        <div id="form">
-          <h1>DYNAMIC RESUME BUILDER</h1>
-          <h3>Build your own resume here</h3>
-      
-          <fieldset>
-            <legend>Personal Information</legend>
-            <label>Name</label> <br>
-            <input type="text" placeholder="Enter name here" autofocus> <br>
-      
-            <label>Short Introduction</label> <br>
-            <textarea name="introduction" cols="30" rows="3" placeholder="Enter short introduction here"></textarea>
-          </fieldset>
-      
-          <br>
-          <fieldset>
-            <legend>Education</legend>
-            <label>Qualification</label>
-            <input type="text" name="qualification" id="qualification" placeholder="Enter qualification here">
-          </fieldset>
-          
-          <br>
-          <fieldset>
-            <legend>Skills</legend>
-            <textarea name="skills" cols="30" rows="3" placeholder="Enter your skills here"></textarea>
-          </fieldset>
-      
-          <br>
-          <fieldset>
-            <legend>Experience</legend>
-            <textarea name="Experience" cols="30" rows="3" placeholder="Enter your Experience here"></textarea>
-          </fieldset>
-      
-          <br>
-          <fieldset>
-            <legend>Contact</legend>
-            <label>Phone Number</label>
-            <input type="tel" pattern="+[0-9]{2}-[0-9]{3}-[0-9]{7}" placeholder="+92-300-1234567" name="phone"> <br>
-      
-            <label>Email</label>
-            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="abc@gmail.com" name="email"> <br>
-          </fieldset>
-      
-          <br>
-          <fieldset>
-            <legend>About Me</legend>
-            <label>Objectives </label> <br>
-            <textarea maxlength="30" name="about"> </textarea> <br>
-          </fieldset>
-      
-          <input type="submit" id="submit" value="Build Resume">
-        </div>
-      </form>
-      
-    
-  <!-- Resume Display Section -->
-  <div id="resume-display" class="resume">
-    <h2 id="display-name" contenteditable="true"></h2>
-    <h4 id="display-introduction" contenteditable="true"> </h4>
-    <h3>About</h3>
-    <p id="display-about" contenteditable="true"></p>
-    
-    <h3>Education</h3>
-    <p id="display-education" contenteditable="true"></p>
-    <h3>Experience</h3>
-    <p id="display-experience" contenteditable="true"></p>
-    <h3>Skills</h3>
-    <p id="display-skills" contenteditable="true"></p>
-    <h3>Contact</h3>
-    <p id="display-email" contenteditable="true"></p>
-    <p id="display-phone" contenteditable="true"></p>
+          <label>Designation</label> <br />
+          <textarea
+            name="introduction"
+            cols="30"
+            rows="1"
+            placeholder="Enter your designation here"
+          ></textarea>
+          <br />
 
-     <!-- Shareable Link and Download -->
-     <div id="share-section">
-      <p>Share your resume: <span id="unique-link"></span></p>
-      <button id="copy-link-btn">Copy Link</button>
+          <!-- Profile picture -->
+          <label>Profile Picture</label> <br />
+          <input
+            type="file"
+            name="profile-picture"
+            id="profile-picture"
+            accept="image/*"
+          />
+          <br />
+        </fieldset>
+
+        <br />
+        <fieldset>
+          <legend>Education</legend>
+          <label>Qualification</label>
+          <input
+            type="text"
+            name="qualification"
+            id="qualification"
+            placeholder="Enter qualification here"
+            required
+          />
+        </fieldset>
+
+        <br />
+        <fieldset>
+          <legend>Skills</legend>
+          <textarea
+            name="skills"
+            cols="30"
+            rows="3"
+            placeholder="Enter your skills here by separating them with comma"
+            required
+          ></textarea>
+        </fieldset>
+
+        <br />
+        <fieldset>
+          <legend>Experience</legend>
+          <textarea
+            name="experience"
+            cols="30"
+            rows="3"
+            placeholder="Enter your Experience here"
+          ></textarea>
+        </fieldset>
+
+        <br />
+        <fieldset>
+          <legend>Contact</legend>
+          <label>Phone Number</label>
+          <input
+            type="tel"
+            pattern="[+][0-9]{2}-[0-9]{3}-[0-9]{7}"
+            placeholder="+92-300-1234567"
+            name="phone"
+            autofocus
+            required
+          />
+          <br />
+
+          <label>Email</label>
+          <input
+            type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            placeholder="abc@gmail.com"
+            name="email"
+            autofocus
+            required
+          />
+          <br />
+        </fieldset>
+
+        <br />
+        <fieldset>
+          <legend>About Me</legend>
+          <label>Objectives</label> <br />
+          <textarea cols="30" rows="3" name="about" required></textarea> <br />
+        </fieldset>
+
+        <input type="submit" id="submit" value="Build Resume" />
+      </div>
+    </form>
+
+    <!-- Resume Display Section -->
+    <div id="resume-display" class="resume" style="display: none">
+      <img
+        id="display-image"
+        src=""
+        alt="Profile Picture"
+        style="display: none"
+      />
+      <h2 id="display-name" contenteditable="true"></h2>
+      <h4 id="display-introduction" contenteditable="true"></h4>
+      <h3>About</h3>
+      <p id="display-about" contenteditable="true"></p>
+
+      <h3>Education</h3>
+      <p id="display-education" contenteditable="true"></p>
+      <h3>Experience</h3>
+      <p id="display-experience" contenteditable="true"></p>
+      <h3>Skills</h3>
+      <p id="display-skills" contenteditable="true"></p>
+      <h3>Contact</h3>
+      <p id="display-email" contenteditable="true"></p>
+      <p id="display-phone" contenteditable="true"></p>
+      <h5>You can edit this resume here. Otherwise download it and Enjoy!</h5>
+
+      <h6>Made with ❤️ by Yusra Saleem</h6>
+
+      <!-- Button to Download the Resume -->
+      <button id="download-btn">Download Resume</button>
     </div>
 
-    <!-- Button to Download the Resume -->
-    <button id="download-btn">Download Resume</button>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
