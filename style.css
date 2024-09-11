@@ -317,11 +317,12 @@ button:hover {
   }
 }
 
-@media (max-width: 480px) {
+@media ((min-width: 310px) and (max-width: 480px)) {
   #form {
-    width: 90%;
+    width: 80vw;
     height: auto;
     padding: 0.5rem;
+    margin: 0.5rem;
   }
 
   .resume {
@@ -345,7 +346,10 @@ button:hover {
   #resume-display h3 {
     font-size: 1.2rem;
   }
-
+  
+  input {
+    width: 70%;
+  }
   textarea {
     width: 60%;
   }
