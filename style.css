@@ -4,7 +4,6 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  /* background-image: linear-gradient(to right,rgb(88, 97, 106) , rgb(222, 210, 210)); */
   border-radius: 35px;
   background: linear-gradient(145deg, #f0f0f0, #cacaca);
   box-shadow: 24px 24px 58px #bebebe,
@@ -14,8 +13,7 @@ body {
 
 #form {
   width: 50rem;
-  height: 90rem;
-  /* background-image: linear-gradient(to right,rgba(54, 180, 194, 0.511),slategrey); */
+  max-height: 200rem;
   border-radius: 20px;
   margin: 1rem;
   padding: 2rem;
@@ -30,7 +28,6 @@ h1 {
   color: rgb(249, 248, 251);
   font-size: 3rem;
   margin: 0.5rem;
-  /* add font shadow */
   text-shadow: 0 0 7px rgb(9, 11, 22), 0 0 9px rgb(9, 11, 22), 0 0 11px rgb(9, 11, 22), 0 0 13px rgb(9, 11, 22), 0 0 15px rgb(9, 11, 22), 0 0 17px rgb(9, 11, 22), 0 0 20px rgb(9, 11, 22);
 
 }
@@ -108,7 +105,8 @@ textarea {
 
 .resume {
   width: 850px;
-  max-height: 1000px;
+  height: 73rem;
+  max-height: 120rem;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ccc;
@@ -135,6 +133,7 @@ textarea {
   outline: none;
   background-color: #fffbe6;
 }
+
 #share-section {
   margin-top: 20px;
 }
@@ -144,11 +143,34 @@ textarea {
   color: #0b1725;
   cursor: pointer;
 }
+
+/* after resume is dipay in screen my form is display is none */
+@media print {
+  .resume {
+    display: block;
+  }
+
+
+  .form {
+    display: none;
+  }
+
+
+}
+
 /* Resume Header */
+
+#resume-display img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
 #resume-display h1 {
   font-size: 3rem;
   color: #0b1928;
-  text-align:left;
+  text-align: left;
   margin-bottom: 20px;
 }
 
@@ -158,7 +180,7 @@ textarea {
   margin-bottom: 10px;
   text-align: left;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
+
 
 }
 
@@ -224,7 +246,7 @@ button:hover {
 }
 
 
-@media ((min-width: 768px) and( max-width: 1024px)) {
+@media ((min-width: 768px) and(max-width: 1024px)) {
   #form {
     width: 90%;
     height: auto;
